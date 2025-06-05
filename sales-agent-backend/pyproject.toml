@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "sales-agent-backend"
+version = "0.1.0"
+description = "Sales AI Agent Chatbot"
+authors = ["Dat Le <minh_dat_le@yahoo.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+langgraph = "^0.4.8"
+python-dotenv = "^1.1.0"
+loguru = "^0.7.3"
+litellm = "^1.72.1"
+termcolor = "^3.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
