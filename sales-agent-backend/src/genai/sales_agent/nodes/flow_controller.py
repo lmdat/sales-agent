@@ -17,3 +17,6 @@ def flow_controller_node(state: SalesAgentState):
     return {
         "selected_flow": selected_flow
     }
+
+def get_selected_flow(state: SalesAgentState):
+    return state.get('selected_flow', TOPIC_FLOW_MAPPING['off_topic'])

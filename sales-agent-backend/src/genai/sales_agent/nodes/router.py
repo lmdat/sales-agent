@@ -159,22 +159,19 @@ def router_node(state: SalesAgentState):
 
     topic = state.get('topic', None)
     logger.info(f"Topic: {topic}")
-    logger.info(f"New Topic: {new_topic}")
     
+    if topic is None:
+        if new_topic.name != TOPIC.get('off_topic') and new_topic.confidence < 0.5:
+            new_topic.name = TOPIC.get('off_topic')
 
-    # if topic is None:
-    #     if new_topic.name != TOPIC.get('off_topic') and new_topic.confidence < 0.5:
-    #         new_topic.name = TOPIC.get('off_topic')
-
-    #     logger.info(f"New Topic: {new_topic}")
-    #     return {
-    #         "topic": new_topic,
-    #         "human_input": user_input,
-    #         "ai_reply": None
-    #     }
+        logger.info(f"New Topic: {new_topic}")
+        return {
+            "topic": new_topic,
+            "human_input": user_input,
+            "ai_reply": None
+        }
 
     return {
-        "topic": new_topic,
         "human_input": user_input,
         "ai_reply": None
     }
